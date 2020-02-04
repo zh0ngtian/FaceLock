@@ -7,22 +7,67 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E1088F523E98C01007672B0 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1088F423E98C01007672B0 /* opencv2.framework */; };
+		0E1088F723E98C06007672B0 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1088F623E98C06007672B0 /* Accelerate.framework */; };
+		0E1088F923E98C0C007672B0 /* OpenCL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1088F823E98C0C007672B0 /* OpenCL.framework */; };
+		0E10890823E9C2B5007672B0 /* mobilefacenet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0E10890623E9C2B4007672B0 /* mobilefacenet.cpp */; };
+		0E10890923E9C2B5007672B0 /* mtcnn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0E10890723E9C2B5007672B0 /* mtcnn.cpp */; };
+		0E10896B23E9E259007672B0 /* mobilefacenet.bin in Resources */ = {isa = PBXBuildFile; fileRef = 0E10896023E9E259007672B0 /* mobilefacenet.bin */; };
+		0E10896C23E9E259007672B0 /* det1.prototxt in Resources */ = {isa = PBXBuildFile; fileRef = 0E10896123E9E259007672B0 /* det1.prototxt */; };
+		0E10896D23E9E259007672B0 /* det3.prototxt in Resources */ = {isa = PBXBuildFile; fileRef = 0E10896223E9E259007672B0 /* det3.prototxt */; };
+		0E10896E23E9E259007672B0 /* det2.prototxt in Resources */ = {isa = PBXBuildFile; fileRef = 0E10896323E9E259007672B0 /* det2.prototxt */; };
+		0E10896F23E9E259007672B0 /* det3.param in Resources */ = {isa = PBXBuildFile; fileRef = 0E10896423E9E259007672B0 /* det3.param */; };
+		0E10897023E9E259007672B0 /* det1.param in Resources */ = {isa = PBXBuildFile; fileRef = 0E10896523E9E259007672B0 /* det1.param */; };
+		0E10897123E9E259007672B0 /* det2.param in Resources */ = {isa = PBXBuildFile; fileRef = 0E10896623E9E259007672B0 /* det2.param */; };
+		0E10897223E9E259007672B0 /* det2.bin in Resources */ = {isa = PBXBuildFile; fileRef = 0E10896723E9E259007672B0 /* det2.bin */; };
+		0E10897323E9E259007672B0 /* det3.bin in Resources */ = {isa = PBXBuildFile; fileRef = 0E10896823E9E259007672B0 /* det3.bin */; };
+		0E10897423E9E259007672B0 /* det1.bin in Resources */ = {isa = PBXBuildFile; fileRef = 0E10896923E9E259007672B0 /* det1.bin */; };
+		0E10897523E9E259007672B0 /* mobilefacenet.param in Resources */ = {isa = PBXBuildFile; fileRef = 0E10896A23E9E259007672B0 /* mobilefacenet.param */; };
+		0E10897B23E9E349007672B0 /* PhotoCapturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E10897A23E9E349007672B0 /* PhotoCapturer.swift */; };
+		0E38EEE323E84F200012A887 /* CV.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0E38EEE223E84F200012A887 /* CV.mm */; };
+		0E38EEE623E8522A0012A887 /* mtcnn_mobilefacenet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0E38EEE523E8522A0012A887 /* mtcnn_mobilefacenet.cpp */; };
+		0E38EEF323E90E4F0012A887 /* libncnn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E38EEF223E90E4F0012A887 /* libncnn.a */; };
 		0ECA375223E2A66C00BDA873 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECA375123E2A66C00BDA873 /* AppDelegate.swift */; };
-		0ECA375423E2A66C00BDA873 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECA375323E2A66C00BDA873 /* ContentView.swift */; };
 		0ECA375623E2A66E00BDA873 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ECA375523E2A66E00BDA873 /* Assets.xcassets */; };
 		0ECA375923E2A66E00BDA873 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ECA375823E2A66E00BDA873 /* Preview Assets.xcassets */; };
 		0ECA375C23E2A66E00BDA873 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0ECA375A23E2A66E00BDA873 /* Main.storyboard */; };
+		0ECA376723E2B3F300BDA873 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECA376623E2B3F300BDA873 /* MenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E1088F423E98C01007672B0 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = "../../CppProjects/opencv-3.4.9/platforms/osx/osx/opencv2.framework"; sourceTree = "<group>"; };
+		0E1088F623E98C06007672B0 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		0E1088F823E98C0C007672B0 /* OpenCL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenCL.framework; path = System/Library/Frameworks/OpenCL.framework; sourceTree = SDKROOT; };
+		0E10890423E9C2B4007672B0 /* mobilefacenet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mobilefacenet.h; sourceTree = "<group>"; };
+		0E10890523E9C2B4007672B0 /* mtcnn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mtcnn.h; sourceTree = "<group>"; };
+		0E10890623E9C2B4007672B0 /* mobilefacenet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mobilefacenet.cpp; sourceTree = "<group>"; };
+		0E10890723E9C2B5007672B0 /* mtcnn.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mtcnn.cpp; sourceTree = "<group>"; };
+		0E10896023E9E259007672B0 /* mobilefacenet.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = mobilefacenet.bin; sourceTree = "<group>"; };
+		0E10896123E9E259007672B0 /* det1.prototxt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = det1.prototxt; sourceTree = "<group>"; };
+		0E10896223E9E259007672B0 /* det3.prototxt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = det3.prototxt; sourceTree = "<group>"; };
+		0E10896323E9E259007672B0 /* det2.prototxt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = det2.prototxt; sourceTree = "<group>"; };
+		0E10896423E9E259007672B0 /* det3.param */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = det3.param; sourceTree = "<group>"; };
+		0E10896523E9E259007672B0 /* det1.param */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = det1.param; sourceTree = "<group>"; };
+		0E10896623E9E259007672B0 /* det2.param */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = det2.param; sourceTree = "<group>"; };
+		0E10896723E9E259007672B0 /* det2.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = det2.bin; sourceTree = "<group>"; };
+		0E10896823E9E259007672B0 /* det3.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = det3.bin; sourceTree = "<group>"; };
+		0E10896923E9E259007672B0 /* det1.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = det1.bin; sourceTree = "<group>"; };
+		0E10896A23E9E259007672B0 /* mobilefacenet.param */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mobilefacenet.param; sourceTree = "<group>"; };
+		0E10897A23E9E349007672B0 /* PhotoCapturer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCapturer.swift; sourceTree = "<group>"; };
+		0E38EEE123E84F200012A887 /* FaceLockProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FaceLockProject-Bridging-Header.h"; sourceTree = "<group>"; };
+		0E38EEE223E84F200012A887 /* CV.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CV.mm; sourceTree = "<group>"; };
+		0E38EEE423E8522A0012A887 /* mtcnn_mobilefacenet.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = mtcnn_mobilefacenet.hpp; sourceTree = "<group>"; };
+		0E38EEE523E8522A0012A887 /* mtcnn_mobilefacenet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mtcnn_mobilefacenet.cpp; sourceTree = "<group>"; };
+		0E38EEE723E852450012A887 /* CV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CV.h; sourceTree = "<group>"; };
+		0E38EEF223E90E4F0012A887 /* libncnn.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libncnn.a; path = ../../CppProjects/ncnn/build/install/lib/libncnn.a; sourceTree = "<group>"; };
 		0ECA374E23E2A66C00BDA873 /* FaceLockProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceLockProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ECA375123E2A66C00BDA873 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0ECA375323E2A66C00BDA873 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0ECA375523E2A66E00BDA873 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0ECA375823E2A66E00BDA873 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0ECA375B23E2A66E00BDA873 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0ECA375D23E2A66E00BDA873 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0ECA375E23E2A66E00BDA873 /* FaceLockProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FaceLockProject.entitlements; sourceTree = "<group>"; };
+		0ECA376623E2B3F300BDA873 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,17 +75,84 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E1088F923E98C0C007672B0 /* OpenCL.framework in Frameworks */,
+				0E1088F723E98C06007672B0 /* Accelerate.framework in Frameworks */,
+				0E1088F523E98C01007672B0 /* opencv2.framework in Frameworks */,
+				0E38EEF323E90E4F0012A887 /* libncnn.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E10895F23E9E259007672B0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0E10896023E9E259007672B0 /* mobilefacenet.bin */,
+				0E10896123E9E259007672B0 /* det1.prototxt */,
+				0E10896223E9E259007672B0 /* det3.prototxt */,
+				0E10896323E9E259007672B0 /* det2.prototxt */,
+				0E10896423E9E259007672B0 /* det3.param */,
+				0E10896523E9E259007672B0 /* det1.param */,
+				0E10896623E9E259007672B0 /* det2.param */,
+				0E10896723E9E259007672B0 /* det2.bin */,
+				0E10896823E9E259007672B0 /* det3.bin */,
+				0E10896923E9E259007672B0 /* det1.bin */,
+				0E10896A23E9E259007672B0 /* mobilefacenet.param */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0E38EED023E7C1180012A887 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0ECA376623E2B3F300BDA873 /* MenuViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		0E38EED323E7C9510012A887 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0ECA375D23E2A66E00BDA873 /* Info.plist */,
+				0ECA375E23E2A66E00BDA873 /* FaceLockProject.entitlements */,
+				0ECA375723E2A66E00BDA873 /* Preview Content */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0E38EEE823E853920012A887 /* CV */ = {
+			isa = PBXGroup;
+			children = (
+				0E38EEE723E852450012A887 /* CV.h */,
+				0E38EEE223E84F200012A887 /* CV.mm */,
+				0E10890623E9C2B4007672B0 /* mobilefacenet.cpp */,
+				0E10890423E9C2B4007672B0 /* mobilefacenet.h */,
+				0E10890723E9C2B5007672B0 /* mtcnn.cpp */,
+				0E10890523E9C2B4007672B0 /* mtcnn.h */,
+				0E38EEE523E8522A0012A887 /* mtcnn_mobilefacenet.cpp */,
+				0E38EEE423E8522A0012A887 /* mtcnn_mobilefacenet.hpp */,
+			);
+			path = CV;
+			sourceTree = "<group>";
+		};
+		0E38EEED23E883640012A887 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0E1088F823E98C0C007672B0 /* OpenCL.framework */,
+				0E1088F623E98C06007672B0 /* Accelerate.framework */,
+				0E38EEF223E90E4F0012A887 /* libncnn.a */,
+				0E1088F423E98C01007672B0 /* opencv2.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		0ECA374523E2A66B00BDA873 = {
 			isa = PBXGroup;
 			children = (
 				0ECA375023E2A66C00BDA873 /* FaceLockProject */,
 				0ECA374F23E2A66C00BDA873 /* Products */,
+				0E38EEED23E883640012A887 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,13 +167,15 @@
 		0ECA375023E2A66C00BDA873 /* FaceLockProject */ = {
 			isa = PBXGroup;
 			children = (
+				0E38EEE123E84F200012A887 /* FaceLockProject-Bridging-Header.h */,
 				0ECA375123E2A66C00BDA873 /* AppDelegate.swift */,
-				0ECA375323E2A66C00BDA873 /* ContentView.swift */,
+				0E10897A23E9E349007672B0 /* PhotoCapturer.swift */,
 				0ECA375523E2A66E00BDA873 /* Assets.xcassets */,
+				0E38EEE823E853920012A887 /* CV */,
 				0ECA375A23E2A66E00BDA873 /* Main.storyboard */,
-				0ECA375D23E2A66E00BDA873 /* Info.plist */,
-				0ECA375E23E2A66E00BDA873 /* FaceLockProject.entitlements */,
-				0ECA375723E2A66E00BDA873 /* Preview Content */,
+				0E10895F23E9E259007672B0 /* Models */,
+				0E38EED323E7C9510012A887 /* Supporting Files */,
+				0E38EED023E7C1180012A887 /* View Controllers */,
 			);
 			path = FaceLockProject;
 			sourceTree = "<group>";
@@ -106,6 +220,7 @@
 				TargetAttributes = {
 					0ECA374D23E2A66B00BDA873 = {
 						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1130;
 					};
 				};
 			};
@@ -133,8 +248,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				0ECA375C23E2A66E00BDA873 /* Main.storyboard in Resources */,
+				0E10896F23E9E259007672B0 /* det3.param in Resources */,
+				0E10897123E9E259007672B0 /* det2.param in Resources */,
 				0ECA375923E2A66E00BDA873 /* Preview Assets.xcassets in Resources */,
+				0E10897523E9E259007672B0 /* mobilefacenet.param in Resources */,
+				0E10896B23E9E259007672B0 /* mobilefacenet.bin in Resources */,
+				0E10896D23E9E259007672B0 /* det3.prototxt in Resources */,
 				0ECA375623E2A66E00BDA873 /* Assets.xcassets in Resources */,
+				0E10897323E9E259007672B0 /* det3.bin in Resources */,
+				0E10897423E9E259007672B0 /* det1.bin in Resources */,
+				0E10897223E9E259007672B0 /* det2.bin in Resources */,
+				0E10896C23E9E259007672B0 /* det1.prototxt in Resources */,
+				0E10896E23E9E259007672B0 /* det2.prototxt in Resources */,
+				0E10897023E9E259007672B0 /* det1.param in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,8 +271,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0ECA375423E2A66C00BDA873 /* ContentView.swift in Sources */,
+				0ECA376723E2B3F300BDA873 /* MenuViewController.swift in Sources */,
+				0E38EEE323E84F200012A887 /* CV.mm in Sources */,
+				0E10890823E9C2B5007672B0 /* mobilefacenet.cpp in Sources */,
+				0E38EEE623E8522A0012A887 /* mtcnn_mobilefacenet.cpp in Sources */,
 				0ECA375223E2A66C00BDA873 /* AppDelegate.swift in Sources */,
+				0E10890923E9C2B5007672B0 /* mtcnn.cpp in Sources */,
+				0E10897B23E9E349007672B0 /* PhotoCapturer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,7 +345,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -268,7 +399,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -281,19 +412,29 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = FaceLockProject/FaceLockProject.entitlements;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "FaceLockProject/Supporting Files/FaceLockProject.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"FaceLockProject/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"FaceLockProject/Supporting Files/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = FaceLockProject/Info.plist;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				HEADER_SEARCH_PATHS = /Users/zhongtian/Documents/CppProjects/ncnn/build/install/include/ncnn;
+				INFOPLIST_FILE = "FaceLockProject/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				LIBRARY_SEARCH_PATHS = /Users/zhongtian/Documents/CppProjects/ncnn/build/install/lib;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = tech.zh0ngtian.FaceLockProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FaceLockProject/FaceLockProject-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -302,19 +443,28 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = FaceLockProject/FaceLockProject.entitlements;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "FaceLockProject/Supporting Files/FaceLockProject.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"FaceLockProject/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"FaceLockProject/Supporting Files/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = FaceLockProject/Info.plist;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				HEADER_SEARCH_PATHS = /Users/zhongtian/Documents/CppProjects/ncnn/build/install/include/ncnn;
+				INFOPLIST_FILE = "FaceLockProject/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				LIBRARY_SEARCH_PATHS = /Users/zhongtian/Documents/CppProjects/ncnn/build/install/lib;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = tech.zh0ngtian.FaceLockProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FaceLockProject/FaceLockProject-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
