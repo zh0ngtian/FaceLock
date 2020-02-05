@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
     </dependencies>
     <scenes>
@@ -653,7 +654,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="FaceLockProject" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="FaceLock" customModuleProvider="target"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <menu title="FaceLock" id="Xiw-05-I8A">
                     <items>
@@ -683,7 +684,7 @@
                         </menuItem>
                     </items>
                 </menu>
-                <customObject id="1ja-GD-dj6" customClass="MenuViewController" customModule="FaceLockProject" customModuleProvider="target">
+                <customObject id="1ja-GD-dj6" customClass="MenuViewController" customModule="FaceLock" customModuleProvider="target">
                     <connections>
                         <outlet property="faceMenu" destination="Xiw-05-I8A" id="qR6-xa-jRe"/>
                     </connections>
