@@ -2,7 +2,7 @@
 #ifndef MOBILEFACENET_H_
 #define MOBILEFACENET_H_
 #include <string>
-#include "net.h"
+#include "ncnn/net.h"
 #include "opencv2/opencv.hpp"
 
 

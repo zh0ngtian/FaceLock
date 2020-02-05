@@ -12,10 +12,10 @@
 #import <opencv2/imgproc.hpp>
 #pragma clang diagnostic pop
 #import <vector>
-
 #import <Cocoa/Cocoa.h>
+
 #import "CV.h"
-#import "mtcnn_mobilefacenet.hpp"
+#import "mtcnn_mobilefacenet.h"
 
 static void NSImageToMat(NSImage *image, cv::Mat &mat) {
     // Create a pixel buffer.
@@ -37,38 +37,6 @@ static void NSImageToMat(NSImage *image, cv::Mat &mat) {
     mat = mat8uc3;
 }
 
-/*
-static NSImage *MatToNSImage(cv::Mat &mat) {
-    // Create a pixel buffer.
-    assert(mat.elemSize() == 1 || mat.elemSize() == 3);
-    cv::Mat matrgb;
-    if (mat.elemSize() == 1) {
-        cv::cvtColor(mat, matrgb, cv::COLOR_GRAY2RGB);
-    } else if (mat.elemSize() == 3) {
-        cv::cvtColor(mat, matrgb, cv::COLOR_BGR2RGB);
-    }
-
-    // Change a image format.
-    NSData *data = [NSData dataWithBytes:matrgb.data length:(matrgb.elemSize() * matrgb.total())];
-    CGColorSpaceRef colorSpace;
-    if (matrgb.elemSize() == 1) {
-        colorSpace = CGColorSpaceCreateDeviceGray();
-    } else {
-        colorSpace = CGColorSpaceCreateDeviceRGB();
-    }
-    CGDataProviderRef provider = CGDataProviderCreateWithCFData((__bridge CFDataRef)data);
-    CGImageRef imageRef = CGImageCreate(matrgb.cols, matrgb.rows, 8, 8 * matrgb.elemSize(), matrgb.step.p[0], colorSpace, kCGImageAlphaNone|kCGBitmapByteOrderDefault, provider, NULL, false, kCGRenderingIntentDefault);
-    NSBitmapImageRep *bitmapImageRep = [[NSBitmapImageRep alloc] initWithCGImage:imageRef];
-    NSImage *image = [NSImage new];
-    [image addRepresentation:bitmapImageRep];
-    CGImageRelease(imageRef);
-    CGDataProviderRelease(provider);
-    CGColorSpaceRelease(colorSpace);
-
-    return image;
-}
- */
-
 static std::vector<float> NSMutableArrayToVector(NSMutableArray *nsArray) {
     int len = int([nsArray count]);
     std::vector<float> vec(len);
@@ -88,14 +56,35 @@ static NSMutableArray *VectorToNSMutableArray(std::vector<float> vec) {
     return res;
 }
 
+struct CPPWrapper {
+    Recognizer _recognizer;
+};
+
 @implementation CV
 
-+ (NSMutableArray *)getFea: (NSImage *)image withMinFace: (int)minFace {
+- (instancetype)initWithModelPath: (NSString *) modelPath minFace: (int) minFace {
+   self = [super init];
+   if (self) {
+       _cppWrapper = new CPPWrapper;
+       _cppWrapper->_recognizer = Recognizer(std::string([modelPath UTF8String]), minFace);
+   }
+   return self;
+}
+
+- (NSMutableArray *)getFea: (NSImage *)image {
     cv::Mat matImage;
     NSImageToMat(image, matImage);
-    std::vector<float> fea = GetFea(matImage, minFace);
+    std::vector<float> fea = _cppWrapper->_recognizer.GetFea(matImage);
     NSMutableArray *res = VectorToNSMutableArray(fea);
     return res;
+}
+
+- (float)verify: (NSImage *)image withTargetFea: (NSMutableArray *) targetFea; {
+    cv::Mat matImage;
+    NSImageToMat(image, matImage);
+    std::vector<float> targetFeaVec = NSMutableArrayToVector(targetFea);
+    float similarity = _cppWrapper->_recognizer.Verify(matImage, targetFeaVec);
+    return similarity;
 }
 
 @end

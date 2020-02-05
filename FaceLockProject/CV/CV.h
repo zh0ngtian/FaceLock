@@ -11,9 +11,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CV : NSObject
-//+ (NSMutableArray *)getFea: (NSImage *)image withMinFace: (int)minFace;
-+ (NSMutableArray *)getFea: (NSImage *)image withMinFace: (int)minFace;
+struct CPPWrapper;
+
+@interface CV : NSObject {
+    struct CPPWrapper *_cppWrapper;
+}
+- (instancetype)initWithModelPath: (NSString *) modelPath minFace: (int) minFace;
+- (NSMutableArray *)getFea: (NSImage *)image;
+- (float)verify: (NSImage *)image withTargetFea: (NSMutableArray *) targetFea;
 @end
 
 #endif /* CV_h */
