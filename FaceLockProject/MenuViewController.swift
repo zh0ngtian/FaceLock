@@ -1,6 +1,6 @@
 //
 //  MenuViewController.swift
-//  iFaceProject
+//  FaceLockProject
 //
 //  Created by 姚中天 on 2020/1/29.
 //  Copyright © 2020 zh0ngtian. All rights reserved.
@@ -15,6 +15,9 @@ class MenuViewController: NSObject, NSApplicationDelegate, NSUserNotificationCen
     var screenSaverDidStart = false
     var keyMouseMonitors = [Any?]()
     var recognizer: CV
+
+    var KEY_FOR_FEA = "user_face_feature"
+    var KEY_FOR_PASSWD = "user_password"
     
     // MARK: - 工具函数
     // 请求辅助功能权限
@@ -34,10 +37,26 @@ class MenuViewController: NSObject, NSApplicationDelegate, NSUserNotificationCen
     @objc func pictureTakerValidated(pictureTaker: IKPictureTaker, returnCode: NSInteger, contextInfo: UnsafeRawPointer) {
         if (returnCode == NSApplication.ModalResponse.OK.rawValue) {
             let outputImage: NSImage = pictureTaker.outputImage()
-            let fea: NSMutableArray = self.recognizer.getFea(outputImage)
-            print(fea)
-            // TODO: 存储特征
+            let feaMutatle: NSMutableArray = self.recognizer.getFea(outputImage)
+            let feaArray: Array = feaMutatle as Array
+            UserDefaults.standard.set(feaArray, forKey: KEY_FOR_FEA)
         }
+    }
+    
+    // 模拟键盘输入
+    func fakeKeyStrokes(str: String) {
+        let src = CGEventSource(stateID: .hidSystemState)
+        let pressEvent = CGEvent(keyboardEventSource: src, virtualKey: 49, keyDown: true)
+        let len = str.count
+        let buffer = UnsafeMutablePointer<UniChar>.allocate(capacity: len)
+        NSString(string:str).getCharacters(buffer)
+        pressEvent?.keyboardSetUnicodeString(stringLength: len, unicodeString: buffer)
+        pressEvent?.post(tap: .cghidEventTap)
+        CGEvent(keyboardEventSource: src, virtualKey: 49, keyDown: false)?.post(tap: .cghidEventTap)
+        
+        // Return key
+        CGEvent(keyboardEventSource: src, virtualKey: 52, keyDown: true)?.post(tap: .cghidEventTap)
+        CGEvent(keyboardEventSource: src, virtualKey: 52, keyDown: false)?.post(tap: .cghidEventTap)
     }
     
     // MARK: - 解锁屏幕
@@ -53,19 +72,42 @@ class MenuViewController: NSObject, NSApplicationDelegate, NSUserNotificationCen
     
     // 尝试解锁屏幕
     func tryUnlockScreen() {
+        guard self.isScreenLocked() else { return }
+        
+        // 检查相机权限
         let status = AVCaptureDevice.authorizationStatus(for: .video)
         guard status == .authorized else { return }
-        guard self.isScreenLocked() else { return }
-        // TODO: 检查有无特征
-        // TODO: 检查有无密码
+        
+        // 检查是否设置人脸
+        let feaArray = UserDefaults.standard.array(forKey: KEY_FOR_FEA)
+        if feaArray == nil {
+            print("No face added.")
+            return
+        }
+        
+        // 检查是否设置密码
+        let passwd = UserDefaults.standard.string(forKey: KEY_FOR_PASSWD)
+        if passwd == nil {
+            print("No password saved.")
+            return
+        }
         
         let pc = PhotoCapturer()
         pc.startCapture()
         let timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { timer in
-            // TODO: 验证图片 self.capturedImage
-            if (pc.flag == false) {
-                pc.stopCapture()
+            let feaMutatle = NSMutableArray()
+            feaMutatle.addObjects(from: feaArray!)
+                        
+            let similarity = self.recognizer.verify(pc.capturedImage, withTargetFea: feaMutatle)
+            if similarity > 0.65 {
+                self.fakeKeyStrokes(str: passwd!)
+            } else {
+                print("Wrong face.")
+            }
+            
+            if !self.isScreenLocked() {
                 timer.invalidate()
+                pc.stopCapture()
             }
         })
         RunLoop.current.add(timer, forMode: .common)
@@ -73,11 +115,6 @@ class MenuViewController: NSObject, NSApplicationDelegate, NSUserNotificationCen
 //        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
 //            pc.flag = false
 //        }
-    }
-    
-    // 输入密码
-    func typePassword() {
-        // TODO
     }
     
     // MARK: - 状态处理
@@ -131,10 +168,7 @@ class MenuViewController: NSObject, NSApplicationDelegate, NSUserNotificationCen
         let deRange = fullPath.range(of: "/det1.bin")
         let modelPath = String(fullPath.prefix(upTo: deRange!.lowerBound))
         self.recognizer = CV(modelPath: modelPath, minFace: 40)
-        
         super.init()
-        
-        // TODO: 类初始化时加载特征
     }
     
     // 菜单初始化
@@ -145,7 +179,7 @@ class MenuViewController: NSObject, NSApplicationDelegate, NSUserNotificationCen
         faceStatusItem.title = "FaceLock"
         faceStatusItem.menu = faceMenu
         
-        // askForAccessibility()
+        self.askForAccessibility()
         let nc = NSWorkspace.shared.notificationCenter
         let dnc = DistributedNotificationCenter.default()
         
@@ -173,8 +207,10 @@ class MenuViewController: NSObject, NSApplicationDelegate, NSUserNotificationCen
     
     // Add Password
     @IBAction func addPasswordAction(_ sender: NSMenuItem) {
-        // TODO
-        print("Add Password")
+        // TODO: 弹窗添加密码
+        // TODO: 项目重命名
+        let passwd = "00120133"
+        UserDefaults.standard.set(passwd, forKey: KEY_FOR_PASSWD)
     }
     
     // Setting

@@ -14,10 +14,10 @@ class PhotoCapturer: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
     var device: AVCaptureDevice!
     var output: AVCaptureVideoDataOutput!
     var capturedImage: NSImage!
-    var flag = false
+//    var flag = false
     
     func startCapture() {
-        self.flag = true
+//        self.flag = true
         
         // Prepare a video capturing session.
         self.session = AVCaptureSession()
@@ -49,7 +49,21 @@ class PhotoCapturer: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
         self.session.startRunning()
     }
     
-     func stopCapture() {
+    func stopCapture() {
         self.session.stopRunning()
+    }
+    
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        // Convert a captured image buffer to NSImage.
+        guard let buffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
+            print("could not get a pixel buffer")
+            return
+        }
+        CVPixelBufferLockBaseAddress(buffer, CVPixelBufferLockFlags.readOnly)
+        let imageRep = NSCIImageRep(ciImage: CIImage(cvImageBuffer: buffer))
+        let capturedImage = NSImage(size: imageRep.size)
+        capturedImage.addRepresentation(imageRep)
+        CVPixelBufferUnlockBaseAddress(buffer, CVPixelBufferLockFlags.readOnly)
+        self.capturedImage = capturedImage
     }
 }
