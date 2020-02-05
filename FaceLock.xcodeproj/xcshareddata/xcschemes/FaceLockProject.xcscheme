@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0ECA374D23E2A66B00BDA873"
-               BuildableName = "FaceLockProject.app"
-               BlueprintName = "FaceLockProject"
-               ReferencedContainer = "container:FaceLockProject.xcodeproj">
+               BuildableName = "FaceLock.app"
+               BlueprintName = "FaceLock"
+               ReferencedContainer = "container:FaceLock.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0ECA374D23E2A66B00BDA873"
-            BuildableName = "FaceLockProject.app"
-            BlueprintName = "FaceLockProject"
-            ReferencedContainer = "container:FaceLockProject.xcodeproj">
+            BuildableName = "FaceLock.app"
+            BlueprintName = "FaceLock"
+            ReferencedContainer = "container:FaceLock.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0ECA374D23E2A66B00BDA873"
-            BuildableName = "FaceLockProject.app"
-            BlueprintName = "FaceLockProject"
-            ReferencedContainer = "container:FaceLockProject.xcodeproj">
+            BuildableName = "FaceLock.app"
+            BlueprintName = "FaceLock"
+            ReferencedContainer = "container:FaceLock.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

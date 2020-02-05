@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  FaceLockProject
+//  FaceLock
 //
 //  Created by 姚中天 on 2020/1/29.
 //  Copyright © 2020 zh0ngtian. All rights reserved.

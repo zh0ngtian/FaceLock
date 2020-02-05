@@ -1,6 +1,6 @@
 //
 //  CV.h
-//  FaceLockProject
+//  FaceLock
 //
 //  Created by 姚中天 on 2020/2/3.
 //  Copyright © 2020 zh0ngtian. All rights reserved.

@@ -54,7 +54,7 @@
 		0E10896A23E9E259007672B0 /* mobilefacenet.param */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mobilefacenet.param; sourceTree = "<group>"; };
 		0E10897A23E9E349007672B0 /* PhotoCapturer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCapturer.swift; sourceTree = "<group>"; };
 		0E10898623EA5FF3007672B0 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = "../../CppProjects/opencv-3.4.9/platforms/osx/osx/opencv2.framework"; sourceTree = "<group>"; };
-		0E38EEE123E84F200012A887 /* FaceLockProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FaceLockProject-Bridging-Header.h"; sourceTree = "<group>"; };
+		0E38EEE123E84F200012A887 /* FaceLock-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FaceLock-Bridging-Header.h"; sourceTree = "<group>"; };
 		0E38EEE223E84F200012A887 /* CV.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CV.mm; sourceTree = "<group>"; };
 		0E38EEE423E8522A0012A887 /* mtcnn_mobilefacenet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mtcnn_mobilefacenet.h; sourceTree = "<group>"; };
 		0E38EEE523E8522A0012A887 /* mtcnn_mobilefacenet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mtcnn_mobilefacenet.cpp; sourceTree = "<group>"; };
@@ -78,13 +78,13 @@
 		0E8DE39C23EA76B6009EFDC0 /* benchmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = benchmark.h; sourceTree = "<group>"; };
 		0E8DE39D23EA76B6009EFDC0 /* platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = platform.h; sourceTree = "<group>"; };
 		0E8DE39E23EA76B6009EFDC0 /* datareader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = datareader.h; sourceTree = "<group>"; };
-		0ECA374E23E2A66C00BDA873 /* FaceLockProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceLockProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0ECA374E23E2A66C00BDA873 /* FaceLock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceLock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ECA375123E2A66C00BDA873 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0ECA375523E2A66E00BDA873 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0ECA375823E2A66E00BDA873 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0ECA375B23E2A66E00BDA873 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0ECA375D23E2A66E00BDA873 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0ECA375E23E2A66E00BDA873 /* FaceLockProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FaceLockProject.entitlements; sourceTree = "<group>"; };
+		0ECA375E23E2A66E00BDA873 /* FaceLock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FaceLock.entitlements; sourceTree = "<group>"; };
 		0ECA376623E2B3F300BDA873 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -125,7 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				0ECA375D23E2A66E00BDA873 /* Info.plist */,
-				0ECA375E23E2A66E00BDA873 /* FaceLockProject.entitlements */,
+				0ECA375E23E2A66E00BDA873 /* FaceLock.entitlements */,
 				0ECA375723E2A66E00BDA873 /* Preview Content */,
 			);
 			path = "Supporting Files";
@@ -194,7 +194,7 @@
 		0ECA374523E2A66B00BDA873 = {
 			isa = PBXGroup;
 			children = (
-				0ECA375023E2A66C00BDA873 /* FaceLockProject */,
+				0ECA375023E2A66C00BDA873 /* FaceLock */,
 				0ECA374F23E2A66C00BDA873 /* Products */,
 				0E38EEED23E883640012A887 /* Frameworks */,
 			);
@@ -203,25 +203,25 @@
 		0ECA374F23E2A66C00BDA873 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0ECA374E23E2A66C00BDA873 /* FaceLockProject.app */,
+				0ECA374E23E2A66C00BDA873 /* FaceLock.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0ECA375023E2A66C00BDA873 /* FaceLockProject */ = {
+		0ECA375023E2A66C00BDA873 /* FaceLock */ = {
 			isa = PBXGroup;
 			children = (
 				0ECA375123E2A66C00BDA873 /* AppDelegate.swift */,
 				0ECA376623E2B3F300BDA873 /* MenuViewController.swift */,
 				0E10897A23E9E349007672B0 /* PhotoCapturer.swift */,
-				0E38EEE123E84F200012A887 /* FaceLockProject-Bridging-Header.h */,
+				0E38EEE123E84F200012A887 /* FaceLock-Bridging-Header.h */,
 				0ECA375A23E2A66E00BDA873 /* Main.storyboard */,
 				0ECA375523E2A66E00BDA873 /* Assets.xcassets */,
 				0E38EEE823E853920012A887 /* CV */,
 				0E10895F23E9E259007672B0 /* Models */,
 				0E38EED323E7C9510012A887 /* Supporting Files */,
 			);
-			path = FaceLockProject;
+			path = FaceLock;
 			sourceTree = "<group>";
 		};
 		0ECA375723E2A66E00BDA873 /* Preview Content */ = {
@@ -235,9 +235,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0ECA374D23E2A66B00BDA873 /* FaceLockProject */ = {
+		0ECA374D23E2A66B00BDA873 /* FaceLock */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0ECA376123E2A66E00BDA873 /* Build configuration list for PBXNativeTarget "FaceLockProject" */;
+			buildConfigurationList = 0ECA376123E2A66E00BDA873 /* Build configuration list for PBXNativeTarget "FaceLock" */;
 			buildPhases = (
 				0ECA374A23E2A66B00BDA873 /* Sources */,
 				0ECA374B23E2A66B00BDA873 /* Frameworks */,
@@ -247,9 +247,9 @@
 			);
 			dependencies = (
 			);
-			name = FaceLockProject;
+			name = FaceLock;
 			productName = FaceLockProject;
-			productReference = 0ECA374E23E2A66C00BDA873 /* FaceLockProject.app */;
+			productReference = 0ECA374E23E2A66C00BDA873 /* FaceLock.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -268,7 +268,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0ECA374923E2A66B00BDA873 /* Build configuration list for PBXProject "FaceLockProject" */;
+			buildConfigurationList = 0ECA374923E2A66B00BDA873 /* Build configuration list for PBXProject "FaceLock" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -281,7 +281,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0ECA374D23E2A66B00BDA873 /* FaceLockProject */,
+				0ECA374D23E2A66B00BDA873 /* FaceLock */,
 			);
 		};
 /* End PBXProject section */
@@ -457,27 +457,27 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "FaceLockProject/Supporting Files/FaceLockProject.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "FaceLock/Supporting Files/FaceLock.entitlements";
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"FaceLockProject/Supporting Files/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"FaceLock/Supporting Files/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				HEADER_SEARCH_PATHS = "";
-				INFOPLIST_FILE = "FaceLockProject/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "FaceLock/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = /Users/zhongtian/Documents/CppProjects/ncnn/build/install/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				PRODUCT_BUNDLE_IDENTIFIER = tech.zh0ngtian.FaceLockProject;
+				PRODUCT_BUNDLE_IDENTIFIER = tech.zh0ngtian.FaceLock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "FaceLockProject/FaceLockProject-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "FaceLock/FaceLock-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
@@ -488,27 +488,27 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "FaceLockProject/Supporting Files/FaceLockProject.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "FaceLock/Supporting Files/FaceLock.entitlements";
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"FaceLockProject/Supporting Files/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"FaceLock/Supporting Files/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				HEADER_SEARCH_PATHS = "";
-				INFOPLIST_FILE = "FaceLockProject/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "FaceLock/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = /Users/zhongtian/Documents/CppProjects/ncnn/build/install/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				PRODUCT_BUNDLE_IDENTIFIER = tech.zh0ngtian.FaceLockProject;
+				PRODUCT_BUNDLE_IDENTIFIER = tech.zh0ngtian.FaceLock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "FaceLockProject/FaceLockProject-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "FaceLock/FaceLock-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -516,7 +516,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0ECA374923E2A66B00BDA873 /* Build configuration list for PBXProject "FaceLockProject" */ = {
+		0ECA374923E2A66B00BDA873 /* Build configuration list for PBXProject "FaceLock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0ECA375F23E2A66E00BDA873 /* Debug */,
@@ -525,7 +525,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0ECA376123E2A66E00BDA873 /* Build configuration list for PBXNativeTarget "FaceLockProject" */ = {
+		0ECA376123E2A66E00BDA873 /* Build configuration list for PBXNativeTarget "FaceLock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0ECA376223E2A66E00BDA873 /* Debug */,

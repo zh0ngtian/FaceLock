@@ -1,6 +1,6 @@
 //
 //  mtcnn_mobilefacenet.hpp
-//  FaceLockProject
+//  FaceLock
 //
 //  Created by 姚中天 on 2020/2/2.
 //  Copyright © 2020 MRP. All rights reserved.
