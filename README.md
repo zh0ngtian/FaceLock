@@ -1,2 +1,2 @@
 # FaceLock
-Unlock your mac with your face
+Unlock your mac with your face.
