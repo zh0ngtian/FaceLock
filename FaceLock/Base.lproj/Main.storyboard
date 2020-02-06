@@ -658,23 +658,24 @@
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <menu title="FaceLock" id="Xiw-05-I8A">
                     <items>
-                        <menuItem title="Add face" id="0hw-hc-0ms" userLabel="Add Face">
+                        <menuItem title="Setting" id="TZc-bP-g46">
                             <modifierMask key="keyEquivalentModifierMask"/>
-                            <connections>
-                                <action selector="addFaceAction:" target="1ja-GD-dj6" id="uII-uy-ON4"/>
-                            </connections>
-                        </menuItem>
-                        <menuItem title="Add Password" id="giS-zf-sBN">
-                            <modifierMask key="keyEquivalentModifierMask"/>
-                            <connections>
-                                <action selector="addPasswordAction:" target="1ja-GD-dj6" id="Uvf-6e-xzP"/>
-                            </connections>
-                        </menuItem>
-                        <menuItem title="Setting" id="RVe-mw-L3V">
-                            <modifierMask key="keyEquivalentModifierMask"/>
-                            <connections>
-                                <action selector="settingAction:" target="1ja-GD-dj6" id="qMT-zf-Rar"/>
-                            </connections>
+                            <menu key="submenu" title="Setting" id="Vgy-Hm-Eqo">
+                                <items>
+                                    <menuItem title="Add face" id="0hw-hc-0ms" userLabel="Add Face">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                        <connections>
+                                            <action selector="addFaceAction:" target="1ja-GD-dj6" id="uII-uy-ON4"/>
+                                        </connections>
+                                    </menuItem>
+                                    <menuItem title="Add Password" id="giS-zf-sBN">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                        <connections>
+                                            <action selector="addPasswordAction:" target="1ja-GD-dj6" id="Uvf-6e-xzP"/>
+                                        </connections>
+                                    </menuItem>
+                                </items>
+                            </menu>
                         </menuItem>
                         <menuItem title="Quit" id="P0b-fd-JtQ">
                             <modifierMask key="keyEquivalentModifierMask"/>

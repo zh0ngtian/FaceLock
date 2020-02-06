@@ -73,7 +73,6 @@
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
-      customArchiveName = "FaceLock"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

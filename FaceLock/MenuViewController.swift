@@ -22,10 +22,10 @@ class MenuViewController: NSObject, NSApplicationDelegate, NSUserNotificationCen
     // MARK: - 工具函数
     // 请求辅助功能权限
     func askForAccessibility() {
-        let key = kAXTrustedCheckOptionPrompt.takeRetainedValue() as String
-        if !AXIsProcessTrustedWithOptions([key: true] as CFDictionary) {
-            // Sometimes Prompt option above doesn't work.
-            // Actually trying to send key may open that dialog.
+        let checkOptPrompt = kAXTrustedCheckOptionPrompt.takeRetainedValue() as String
+        let accessEnabled = AXIsProcessTrustedWithOptions([checkOptPrompt: true] as CFDictionary)
+        if !accessEnabled {
+            // Sometimes Prompt option above doesn't work, actually trying to send key may open that dialog.
             let src = CGEventSource(stateID: .hidSystemState)
             // "Fn" key down and up
             CGEvent(keyboardEventSource: src, virtualKey: 63, keyDown: true)?.post(tap: .cghidEventTap)
@@ -59,6 +59,31 @@ class MenuViewController: NSObject, NSApplicationDelegate, NSUserNotificationCen
         CGEvent(keyboardEventSource: src, virtualKey: 52, keyDown: false)?.post(tap: .cghidEventTap)
     }
     
+    // 请求用户密码
+    func askForPassword() -> String {
+        func t(_ key: String) -> String {
+            return NSLocalizedString(key, comment: "")
+        }
+        
+        let msg = NSAlert()
+        msg.addButton(withTitle: t("OK"))
+        msg.addButton(withTitle: t("Cancel"))
+        msg.messageText = t("Enter Password")
+        msg.informativeText = t("Password will be used to unlock screen.")
+        msg.window.title = "FaceLock"
+
+        let txt = NSSecureTextField(frame: NSRect(x: 0, y: 0, width: 260, height: 20))
+        msg.accessoryView = txt
+        txt.becomeFirstResponder()
+        NSApp.activate(ignoringOtherApps: true)
+        let response = msg.runModal()
+        
+        if (response == .alertFirstButtonReturn) {
+            return txt.stringValue
+        }
+        return ""
+    }
+    
     // MARK: - 解锁屏幕
     // 判断当前是否锁屏
     func isScreenLocked() -> Bool {
@@ -78,19 +103,18 @@ class MenuViewController: NSObject, NSApplicationDelegate, NSUserNotificationCen
         let status = AVCaptureDevice.authorizationStatus(for: .video)
         guard status == .authorized else { return }
         
+        // 检查辅助功能权限
+        let checkOptPrompt = kAXTrustedCheckOptionPrompt.takeRetainedValue() as String
+        let accessEnabled = AXIsProcessTrustedWithOptions([checkOptPrompt: true] as CFDictionary)
+        guard accessEnabled else { return }
+        
         // 检查是否设置人脸
         let feaArray = UserDefaults.standard.array(forKey: KEY_FOR_FEA)
-        if feaArray == nil {
-            print("No face added.")
-            return
-        }
+        guard feaArray != nil else { return }
         
         // 检查是否设置密码
         let passwd = UserDefaults.standard.string(forKey: KEY_FOR_PASSWD)
-        if passwd == nil {
-            print("No password saved.")
-            return
-        }
+        guard passwd != nil else { return }
         
         let pc = PhotoCapturer()
         pc.startCapture()
@@ -171,11 +195,10 @@ class MenuViewController: NSObject, NSApplicationDelegate, NSUserNotificationCen
     }
     
     // 菜单初始化
-    @IBOutlet weak var faceMenu: NSMenu!
-    let faceStatusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-    
     override func awakeFromNib() {
-        faceStatusItem.title = "FaceLock"
+        if let button = faceStatusItem.button {
+            button.image = NSImage(named: "StatusIcon")
+        }
         faceStatusItem.menu = faceMenu
         
         self.askForAccessibility()
@@ -189,6 +212,9 @@ class MenuViewController: NSObject, NSApplicationDelegate, NSUserNotificationCen
     }
     
     // MARK: - 按钮操作
+     @IBOutlet weak var faceMenu: NSMenu!
+     let faceStatusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+    
     // Add Face
     @IBAction func addFaceAction(_ sender: NSMenuItem) {
         let pictureTaker = IKPictureTaker()
@@ -206,14 +232,11 @@ class MenuViewController: NSObject, NSApplicationDelegate, NSUserNotificationCen
     
     // Add Password
     @IBAction func addPasswordAction(_ sender: NSMenuItem) {
-        // TODO: 弹窗添加密码
-        let passwd = "password"
-        UserDefaults.standard.set(passwd, forKey: KEY_FOR_PASSWD)
-    }
-    
-    // Setting
-    @IBAction func settingAction(_ sender: NSMenuItem) {
-        print("Setting")
+        // TODO: 添加大图标和小图标
+        let passwd = self.askForPassword()
+        if passwd != "" {
+            UserDefaults.standard.set(passwd, forKey: KEY_FOR_PASSWD)
+        }
     }
     
     // Quit
