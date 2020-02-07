@@ -131,7 +131,7 @@ class MenuViewController: NSObject, NSApplicationDelegate, NSUserNotificationCen
             let similarity = self.recognizer.verify(pc.capturedImage, withTargetFea: feaMutatle)
             print("similarity: ", similarity)
             
-            if similarity > 0.8 {
+            if similarity > 0.78 {
                 if !self.displaySleep && self.isScreenLocked() {
                     self.fakeKeyStrokes(str: passwd!)
                 }

@@ -6,11 +6,8 @@
 //  Copyright © 2020 zh0ngtian. All rights reserved.
 //
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdocumentation"
 #import <opencv2/opencv.hpp>
 #import <opencv2/imgproc.hpp>
-#pragma clang diagnostic pop
 #import <vector>
 #import <Cocoa/Cocoa.h>
 

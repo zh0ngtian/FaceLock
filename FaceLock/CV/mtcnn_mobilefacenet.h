@@ -9,8 +9,8 @@
 #ifndef mtcnn_mobilefacenet_h
 #define mtcnn_mobilefacenet_h
 
-#include "3rdparty/mtcnn.h"
-#include "3rdparty/mobilefacenet.h"
+#include "mtcnn.h"
+#include "mobilefacenet.h"
 #include <opencv2/opencv.hpp>
 #include <memory>
 

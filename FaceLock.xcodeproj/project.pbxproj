@@ -24,9 +24,9 @@
 		0E38EEE323E84F200012A887 /* CV.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0E38EEE223E84F200012A887 /* CV.mm */; };
 		0E38EEE623E8522A0012A887 /* mtcnn_mobilefacenet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0E38EEE523E8522A0012A887 /* mtcnn_mobilefacenet.cpp */; };
 		0E38EEF323E90E4F0012A887 /* libncnn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E38EEF223E90E4F0012A887 /* libncnn.a */; };
-		0E8DE38523EA60EE009EFDC0 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1088F623E98C06007672B0 /* Accelerate.framework */; };
-		0E8DE38823EA60EF009EFDC0 /* OpenCL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1088F823E98C0C007672B0 /* OpenCL.framework */; };
-		0E8DE38A23EA60F1009EFDC0 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E10898623EA5FF3007672B0 /* opencv2.framework */; };
+		0E92378023ED266D00906A35 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1088F623E98C06007672B0 /* Accelerate.framework */; };
+		0E92378323ED266E00906A35 /* OpenCL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1088F823E98C0C007672B0 /* OpenCL.framework */; };
+		0E92378523ED267000906A35 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E10898623EA5FF3007672B0 /* opencv2.framework */; };
 		0ECA375223E2A66C00BDA873 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECA375123E2A66C00BDA873 /* AppDelegate.swift */; };
 		0ECA375623E2A66E00BDA873 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ECA375523E2A66E00BDA873 /* Assets.xcassets */; };
 		0ECA375923E2A66E00BDA873 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ECA375823E2A66E00BDA873 /* Preview Assets.xcassets */; };
@@ -60,24 +60,6 @@
 		0E38EEE523E8522A0012A887 /* mtcnn_mobilefacenet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mtcnn_mobilefacenet.cpp; sourceTree = "<group>"; };
 		0E38EEE723E852450012A887 /* CV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CV.h; sourceTree = "<group>"; };
 		0E38EEF223E90E4F0012A887 /* libncnn.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libncnn.a; path = ../../CppProjects/ncnn/build/install/lib/libncnn.a; sourceTree = "<group>"; };
-		0E8DE38D23EA76B6009EFDC0 /* modelbin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = modelbin.h; sourceTree = "<group>"; };
-		0E8DE38E23EA76B6009EFDC0 /* net.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = net.h; sourceTree = "<group>"; };
-		0E8DE38F23EA76B6009EFDC0 /* mat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mat.h; sourceTree = "<group>"; };
-		0E8DE39023EA76B6009EFDC0 /* blob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = blob.h; sourceTree = "<group>"; };
-		0E8DE39123EA76B6009EFDC0 /* layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = layer.h; sourceTree = "<group>"; };
-		0E8DE39223EA76B6009EFDC0 /* paramdict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = paramdict.h; sourceTree = "<group>"; };
-		0E8DE39323EA76B6009EFDC0 /* option.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = option.h; sourceTree = "<group>"; };
-		0E8DE39423EA76B6009EFDC0 /* gpu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gpu.h; sourceTree = "<group>"; };
-		0E8DE39523EA76B6009EFDC0 /* opencv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = opencv.h; sourceTree = "<group>"; };
-		0E8DE39623EA76B6009EFDC0 /* allocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = allocator.h; sourceTree = "<group>"; };
-		0E8DE39723EA76B6009EFDC0 /* cpu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpu.h; sourceTree = "<group>"; };
-		0E8DE39823EA76B6009EFDC0 /* layer_type_enum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = layer_type_enum.h; sourceTree = "<group>"; };
-		0E8DE39923EA76B6009EFDC0 /* layer_type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = layer_type.h; sourceTree = "<group>"; };
-		0E8DE39A23EA76B6009EFDC0 /* pipeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pipeline.h; sourceTree = "<group>"; };
-		0E8DE39B23EA76B6009EFDC0 /* command.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = command.h; sourceTree = "<group>"; };
-		0E8DE39C23EA76B6009EFDC0 /* benchmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = benchmark.h; sourceTree = "<group>"; };
-		0E8DE39D23EA76B6009EFDC0 /* platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = platform.h; sourceTree = "<group>"; };
-		0E8DE39E23EA76B6009EFDC0 /* datareader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = datareader.h; sourceTree = "<group>"; };
 		0ECA374E23E2A66C00BDA873 /* FaceLock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceLock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ECA375123E2A66C00BDA873 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0ECA375523E2A66E00BDA873 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -93,9 +75,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E8DE38523EA60EE009EFDC0 /* Accelerate.framework in Frameworks */,
-				0E8DE38823EA60EF009EFDC0 /* OpenCL.framework in Frameworks */,
-				0E8DE38A23EA60F1009EFDC0 /* opencv2.framework in Frameworks */,
+				0E92378023ED266D00906A35 /* Accelerate.framework in Frameworks */,
+				0E92378323ED266E00906A35 /* OpenCL.framework in Frameworks */,
+				0E92378523ED267000906A35 /* opencv2.framework in Frameworks */,
 				0E38EEF323E90E4F0012A887 /* libncnn.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -134,9 +116,12 @@
 		0E38EEE823E853920012A887 /* CV */ = {
 			isa = PBXGroup;
 			children = (
-				0E8DE38C23EA76B6009EFDC0 /* 3rdparty */,
 				0E38EEE723E852450012A887 /* CV.h */,
 				0E38EEE223E84F200012A887 /* CV.mm */,
+				0E10890623E9C2B4007672B0 /* mobilefacenet.cpp */,
+				0E10890423E9C2B4007672B0 /* mobilefacenet.h */,
+				0E10890723E9C2B5007672B0 /* mtcnn.cpp */,
+				0E10890523E9C2B4007672B0 /* mtcnn.h */,
 				0E38EEE523E8522A0012A887 /* mtcnn_mobilefacenet.cpp */,
 				0E38EEE423E8522A0012A887 /* mtcnn_mobilefacenet.h */,
 			);
@@ -152,43 +137,6 @@
 				0E38EEF223E90E4F0012A887 /* libncnn.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		0E8DE38C23EA76B6009EFDC0 /* 3rdparty */ = {
-			isa = PBXGroup;
-			children = (
-				0E8DE3A123EA7CFA009EFDC0 /* ncnn */,
-				0E10890623E9C2B4007672B0 /* mobilefacenet.cpp */,
-				0E10890423E9C2B4007672B0 /* mobilefacenet.h */,
-				0E10890723E9C2B5007672B0 /* mtcnn.cpp */,
-				0E10890523E9C2B4007672B0 /* mtcnn.h */,
-			);
-			path = 3rdparty;
-			sourceTree = "<group>";
-		};
-		0E8DE3A123EA7CFA009EFDC0 /* ncnn */ = {
-			isa = PBXGroup;
-			children = (
-				0E8DE38D23EA76B6009EFDC0 /* modelbin.h */,
-				0E8DE38E23EA76B6009EFDC0 /* net.h */,
-				0E8DE38F23EA76B6009EFDC0 /* mat.h */,
-				0E8DE39023EA76B6009EFDC0 /* blob.h */,
-				0E8DE39123EA76B6009EFDC0 /* layer.h */,
-				0E8DE39223EA76B6009EFDC0 /* paramdict.h */,
-				0E8DE39323EA76B6009EFDC0 /* option.h */,
-				0E8DE39423EA76B6009EFDC0 /* gpu.h */,
-				0E8DE39523EA76B6009EFDC0 /* opencv.h */,
-				0E8DE39623EA76B6009EFDC0 /* allocator.h */,
-				0E8DE39723EA76B6009EFDC0 /* cpu.h */,
-				0E8DE39823EA76B6009EFDC0 /* layer_type_enum.h */,
-				0E8DE39923EA76B6009EFDC0 /* layer_type.h */,
-				0E8DE39A23EA76B6009EFDC0 /* pipeline.h */,
-				0E8DE39B23EA76B6009EFDC0 /* command.h */,
-				0E8DE39C23EA76B6009EFDC0 /* benchmark.h */,
-				0E8DE39D23EA76B6009EFDC0 /* platform.h */,
-				0E8DE39E23EA76B6009EFDC0 /* datareader.h */,
-			);
-			path = ncnn;
 			sourceTree = "<group>";
 		};
 		0ECA374523E2A66B00BDA873 = {
@@ -467,7 +415,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = /Users/zhongtian/Documents/CppProjects/ncnn/build/install/include/ncnn;
 				INFOPLIST_FILE = "FaceLock/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -498,7 +446,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = /Users/zhongtian/Documents/CppProjects/ncnn/build/install/include/ncnn;
 				INFOPLIST_FILE = "FaceLock/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

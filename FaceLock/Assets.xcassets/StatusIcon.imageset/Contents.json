@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "facial-recognition-black-18.png"
+      "filename" : "facial-recognition-black.pdf"
     }
   ],
   "info" : {
@@ -10,7 +10,9 @@
     "author" : "xcode"
   },
   "properties" : {
-    "template-rendering-intent" : "template",
-    "preserves-vector-representation" : true
+    "localizable" : true,
+    "auto-scaling" : "auto",
+    "preserves-vector-representation" : true,
+    "template-rendering-intent" : "template"
   }
 }

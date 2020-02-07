@@ -5,7 +5,7 @@
 
 #ifndef __MTCNN_NCNN_H__
 #define __MTCNN_NCNN_H__
-#include "ncnn/net.h"
+#include "net.h"
 #include <opencv2/opencv.hpp>
 #include <string>
 #include <vector>
