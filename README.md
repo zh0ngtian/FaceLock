@@ -23,7 +23,7 @@ FaceLock does not yet support face anti-spoofing, which means that your photos c
 
 ### Compile from source code
 
-* git clone https://github.com/zh0ngtian/FaceLock.git`
+* `git clone https://github.com/zh0ngtian/FaceLock.git`
 * open `your_project_path/FaceLock/FaceLock.xcodeproj` with Xcode
 * `FaceLock (top line of the left sidebar) -> TARGETS -> Build Phases -> Link Binary With Libraries`
     * add `Accelerate.framework`
