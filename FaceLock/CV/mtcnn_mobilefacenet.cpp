@@ -23,7 +23,11 @@ std::vector<float> Recognizer::GetFea(cv::Mat image) {
     std::vector<Bbox> final_bbox;
 
     mtcnn_ptr_->detectMaxFace(ncnn_img, final_bbox);
-
+    
+    clock_t mid_time = clock();
+    double detect_time = (double)(mid_time - start_time) / CLOCKS_PER_SEC;
+    std::cout << "detection time " << detect_time * 1000 << "ms" << std::endl;
+    
     const int num_box = int(final_bbox.size());
     std::vector<cv::Rect> bbox;
     bbox.resize(num_box);
@@ -35,12 +39,10 @@ std::vector<float> Recognizer::GetFea(cv::Mat image) {
         cv::Mat cropped_img;
         ROI.copyTo(cropped_img);
         recognize_ptr_->start(cropped_img, sample_fea);
-    } else {
-        std::cout << "no face detected" << std::endl;
     }
 
     clock_t finish_time = clock();
-    double total_time = (double)(finish_time - start_time) / CLOCKS_PER_SEC;
+    double total_time = (double)(finish_time - mid_time) / CLOCKS_PER_SEC;
     std::cout << "recognization time " << total_time * 1000 << "ms" << std::endl;
 
     return sample_fea;

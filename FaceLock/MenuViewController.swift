@@ -11,9 +11,12 @@ import Quartz
 import AVKit
 
 class MenuViewController: NSObject, NSApplicationDelegate, NSUserNotificationCenterDelegate {
+    var first = false
     var displaySleep = false
-    var screenSaverDidStart = false
+    var screensaverDidStart = false
+    
     var keyMouseMonitors = [Any?]()
+    var capturer: PhotoCapturer
     var recognizer: CV
 
     var KEY_FOR_FEA = "user_face_feature"
@@ -125,29 +128,32 @@ class MenuViewController: NSObject, NSApplicationDelegate, NSUserNotificationCen
             return
         }
         
-        let pc = PhotoCapturer()
-        pc.startCapture()
-        let timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { timer in
-            let similarity = self.recognizer.verify(pc.capturedImage, withTargetFea: feaMutatle)
-            print("similarity: ", similarity)
-            
-            if similarity > 0.78 {
-                if !self.displaySleep && self.isScreenLocked() {
-                    self.fakeKeyStrokes(str: passwd!)
+        self.capturer.startCapture()
+        let timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { timer in
+            let ci = self.capturer.capturedImage
+            if ci != nil {
+                let similarity = self.recognizer.verify(ci, withTargetFea: feaMutatle)
+                print("similarity: ", similarity)
+                print()
+                
+                if similarity > 0.78 {
+                    if !self.displaySleep && self.isScreenLocked() {
+                        self.fakeKeyStrokes(str: passwd!)
+                    }
+                    self.capturer.stopCapture()
+                    timer.invalidate()
                 }
-                pc.stopCapture()
-                timer.invalidate()
-            }
-            
-            if self.displaySleep || !self.isScreenLocked() {
-                pc.stopCapture()
-                timer.invalidate()
+                
+                if self.displaySleep || !self.isScreenLocked() {
+                    self.capturer.stopCapture()
+                    timer.invalidate()
+                }
             }
         })
         RunLoop.current.add(timer, forMode: .common)
     }
     
-    // MARK: - Process
+    // MARK: - Observation
     @objc func onUnlock() {
         print("\(Date(timeIntervalSinceNow: 0)) -> on unlock")
         
@@ -157,7 +163,12 @@ class MenuViewController: NSObject, NSApplicationDelegate, NSUserNotificationCen
             self.keyMouseMonitors.removeAll()
         }
         self.displaySleep = false
-        self.screenSaverDidStart = false
+        self.screensaverDidStart = false
+         self.first = false
+    }
+    
+    @objc func onLock() {
+        print("\(Date(timeIntervalSinceNow: 0)) -> on lock")
     }
     
     @objc func onDisplaySleep() {
@@ -169,7 +180,8 @@ class MenuViewController: NSObject, NSApplicationDelegate, NSUserNotificationCen
             self.keyMouseMonitors.removeAll()
         }
         self.displaySleep = true
-        self.screenSaverDidStart = false
+        self.screensaverDidStart = false
+        self.first = false
     }
     
     @objc func onDisplayWake() {
@@ -181,19 +193,33 @@ class MenuViewController: NSObject, NSApplicationDelegate, NSUserNotificationCen
     @objc func onScreensaverDidStart() {
         print("\(Date(timeIntervalSinceNow: 0)) -> on screensaver didStart")
         
-        self.screenSaverDidStart = true
+        let lock = NSLock()
+        
+        self.screensaverDidStart = true
+        self.first = false
         let keyMouseMonitor = NSEvent.addGlobalMonitorForEvents(matching: [.keyDown, .mouseMoved]) { _ in
-            self.tryUnlockScreen()
+            lock.lock()
+            if self.first == false {
+                self.first = true
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                    self.first = false
+                }
+                self.tryUnlockScreen()
+            }
+            lock.unlock()
         }
         keyMouseMonitors.append(keyMouseMonitor)
     }
     
-    // MARK: - Init
+    // MARK: - Initialization
     override init() {
         let fullPath = String(Bundle.main.path(forResource: "det1", ofType: "bin")!)
         let deRange = fullPath.range(of: "/det1.bin")
         let modelPath = String(fullPath.prefix(upTo: deRange!.lowerBound))
+        
         self.recognizer = CV(modelPath: modelPath, minFace: 40)
+        self.capturer = PhotoCapturer()
+        
         super.init()
     }
     
@@ -209,6 +235,7 @@ class MenuViewController: NSObject, NSApplicationDelegate, NSUserNotificationCen
         
         nc.addObserver(self, selector: #selector(onDisplaySleep), name: NSWorkspace.screensDidSleepNotification, object: nil)
         nc.addObserver(self, selector: #selector(onDisplayWake), name: NSWorkspace.screensDidWakeNotification, object: nil)
+        dnc.addObserver(self, selector: #selector(onLock), name: NSNotification.Name(rawValue: "com.apple.screenIsLocked"), object: nil)
         dnc.addObserver(self, selector: #selector(onUnlock), name: NSNotification.Name(rawValue: "com.apple.screenIsUnlocked"), object: nil)
         dnc.addObserver(self, selector: #selector(onScreensaverDidStart), name: NSNotification.Name(rawValue: "com.apple.screensaver.didstart"), object: nil)
     }
@@ -247,8 +274,10 @@ class MenuViewController: NSObject, NSApplicationDelegate, NSUserNotificationCen
         pc.startCapture()
         let timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { timer in
             let ci = pc.capturedImage
-            let similarity = self.recognizer.verify(ci, withTargetFea: feaMutatle)
-            print("similarity: ", similarity)
+            if ci != nil {
+                let similarity = self.recognizer.verify(ci, withTargetFea: feaMutatle)
+                print("similarity: ", similarity)
+            }
         })
         RunLoop.current.add(timer, forMode: .common)
     }

@@ -14,11 +14,8 @@ class PhotoCapturer: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
     var device: AVCaptureDevice!
     var output: AVCaptureVideoDataOutput!
     var capturedImage: NSImage!
-//    var flag = false
     
     func startCapture() {
-//        self.flag = true
-        
         // Prepare a video capturing session.
         self.session = AVCaptureSession()
         self.session.sessionPreset = AVCaptureSession.Preset.vga640x480

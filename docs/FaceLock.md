@@ -17,6 +17,7 @@
         * 暂无
     * com.apple.screenIsLocked
         * ~~检查睡眠和屏保状态变量，如果都不是则**尝试解锁**~~
+        * 暂无
     * com.apple.screenIsUnlocked
         * 取消睡眠和屏保状态变量
         * 停止监测键盘敲击和鼠标移动
